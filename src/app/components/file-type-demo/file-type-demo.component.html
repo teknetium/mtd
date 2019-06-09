@@ -1,0 +1,23 @@
+<div>
+  <p>Clicking on one of the file icons below will load a sample document of that file format into the myTrainingdocs document viewer. </p>
+  <div class="file-types">
+    <div *ngFor="let file of fileList; let i = index" class="file-container"  [ngClass]="{'file-selected': currentIndex === i}"
+         (click)="showFile(i)">
+      <div class="icon-container">
+        <i style="font-size:22px;" nz-icon [nzType]="file.iconClassStr" nzPlacement="top" nzTitle="{{file.description}}" nz-tooltip></i>
+        <span class="file-ext">{{ file.fileExt }}</span>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+  <div>
+    <div>
+      <div>
+
+      </div>
+      <div class="iframe-container">
+        <iframe [src]="docUrl" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>

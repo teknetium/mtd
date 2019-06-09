@@ -1,0 +1,20 @@
+<div style="width: 100%;">
+  <div>
+    <button nz-button nzType="primary" (click)="upLoadFile()" [nzSize]="'small'"><i nz-icon type="upload"></i>Upload</button>
+  </div>
+  <div style="display: inline-block;font-size: 24px;margin-right:10px;" *ngFor="let file of (failedFiles$ | async); let i = index">
+    <i nz-tooltip nzTitle="{{file.filename}}" class="failed-icon" nz-icon [nzType]="'file-exclamation'" ></i>
+  </div>
+  <div style="display: inline-block;font-size: 24px;margin-right:10px;" *ngFor="let file of filesUploaded$ | async; let i = index">
+    <i nz-tooltip nzTitle="{{file.filename}}" class="failed-icon" nz-icon [nzType]="'file-done'" (click)="viewDoc(file.handle)"></i>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+<!--
+<div style="display: block;width: 100%;">
+  <div id="inlinePicker" style="display:inline;width:45%;height:500px;"></div>
+  <div>
+    <iframe style="display:inline;width:45%;height:500px;" [src]="docUrl$ | async"></iframe>
+  </div>
+</div>
+-->

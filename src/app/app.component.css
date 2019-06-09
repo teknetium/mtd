@@ -1,0 +1,160 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  float: left;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.login {
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin: 3px;
+}
+
+.header-button-container {
+  line-height: 64px;
+  vertical-align: bottom;
+  float: right;
+  display: inline;
+}
+
+.nugget-wrapper {
+  text-align: center;
+  margin-top: 2px;
+  margin-left: 10%;
+}
+
+ul li:hover ul li a {
+  color: green;
+}
+
+.nugget-container {
+  float: left;
+  display: inline-block;
+  width: 60%;
+}
+.nugget-container2 {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  padding: 1px 8px 0 0;
+  margin-right: 2%;
+  border: 1px solid white;
+}
+.nugget-container2:hover {
+  background-color: #f1f5fe;
+  border: 1px solid #adc6ff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nugget.ant-badge {
+  margin: 14px;
+}
+
+.nugget {
+  vertical-align: bottom;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nugget-selected {
+  background-color: #f1f5fe;
+  border: 1px solid #adc6ff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.badged-icon {
+  font-size: 24px;
+}
+
+.purple-buttons {
+  border: 1px solid #d3adf7;
+  margin: 1px 7px 1px 1px;
+  padding: 5px;
+}
+
+.geekblue-buttons {
+  border: 1px solid #adc6ff;
+  margin: 1px 7px 1px 1px;
+  padding: 5px;
+}
+
+.purple-buttons:hover {
+  border: 2px solid #722ed1;
+  margin: 0px 6px 0px 0px;
+}
+
+.geekblue-buttons:hover {
+  border: 2px solid #2f54eb;
+  margin: 0px 6px 0px 0px;
+}
+
+
+.nugget-label {
+  position: relative;
+  top: 18px;
+  left: -50px;
+  font-size: 12px;
+  max-width: 50px;
+  text-align: center;
+}
+
+.tag-button-style {
+  font-size:16px;
+  padding: 3px;
+  opacity: .7;
+}
+
+
+.DisplayNone {
+  display: none;
+}
+
+.signup {
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin: 3px;
+}
+
+.logo {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px;
+  overflow: hidden;
+}
+
+.logo-img {
+  margin: 0 10px;
+}
+
+.appname-container {
+  white-space:nowrap;
+  display: inline;
+}
+
+.appname1 {
+  font-size: 16px;
+  color: #8c0000;
+  font-weight: 200;
+}
+
+.appname2 {
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+}

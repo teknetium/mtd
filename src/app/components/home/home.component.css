@@ -1,0 +1,176 @@
+
+.bold {
+  font-weight: 300;
+}
+
+.home-container {
+  margin: 0 6% 24px 6%;
+  height: 98%;
+}
+
+.intro {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+.introduction-title {
+  margin-bottom: .3em;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.introduction-body{
+  font-size: 14px;
+  font-weight: 200;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0em;
+}
+.easy-as-pie {
+  font-weight: 400;
+}
+
+.cell-container {
+  overflow: scroll;
+  text-align: left;
+}
+
+div.ant-card-body {
+  overflow: scroll;
+  height: 100%;
+  padding:0;
+}
+
+.ant-card-head-title {
+  white-space: normal;
+}
+
+.ant-steps-item-title {
+  font-size: 12px;
+}
+
+.ant-card-head {
+  margin-bottom: 10px;
+}
+
+.ant-tabs {
+  padding: 0 24px 0 0px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.list-cell {
+  text-align: center;
+  opacity: .9;
+  padding: 3px;
+}
+
+.list-cell:hover {
+  opacity: 1.0;
+  color: #bc1922;
+}
+
+.cell-text-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.cell-problem-text-container {
+  display: inline-block;
+}
+
+nz-card.card {
+  height: 100%;
+  margin-top: 3% !important;
+  overflow: scroll;
+  margin: 0 !important;
+}
+
+.cell-problem-text {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2.0em;
+  color: black;
+  height: 40%;
+  margin-bottom: 15px;
+}
+
+.cell-solution-text-container {
+  margin-bottom: 16px;
+}
+.cell-solution-text {
+  line-height: 1.5em;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.call-to-action {
+  text-align: center;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.cell-selected {
+  background-color: #dddddd;
+}
+.appname1 {
+  font-size: 16px;
+  color: red;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.appname2 {
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+}
+.appname3 {
+  font-size: 18px;
+  color: red;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.appname4 {
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+}
+.text1 {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.q1 {
+  font-size: 16px;
+  background-color: #fcf0f6;
+  color: red;
+  font-weight: 400;
+}
+
+.tabButtonActive {
+  opacity: 1.0;
+  cursor: pointer;
+}
+
+.tabButtonInactive {
+   opacity: 0.2;
+   cursor: not-allowed;
+ }
+
+.doc-viewer {
+}
+.view-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 24px;
+}

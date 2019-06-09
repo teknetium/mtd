@@ -1,0 +1,48 @@
+<div class="view-title" *ngIf="(isAuthenticated$ | async)">
+  Get Started!
+</div>
+<div class="getting-started-intro">
+  This 4 step wizard will walk you through getting your team up and running on
+  <span style="color:red;">my</span><span class="appname2">Training</span><span style="color:red;">docs</span>.
+</div>
+
+<nz-card style="height:98% ;overflow: scroll;margin: 0;border:0;" [nzTitle]="titleTemplate" [nzExtra]="extraTemplate">
+<nz-steps [nzCurrent]="current" class="steps" nzSize="small">
+  <nz-step nzTitle="Create Training"></nz-step>
+  <nz-step nzTitle="Upload File"></nz-step>
+  <nz-step nzTitle="Invite Team Members"></nz-step>
+  <nz-step nzTitle="Assign Due Dates"></nz-step>
+</nz-steps>
+
+<div class="steps-content" style="">
+  <div *ngIf="current === 0">
+    <app-training-form></app-training-form>
+  </div>
+  <div *ngIf="current === 1">
+    <mtd-file-upload></mtd-file-upload>
+  </div>
+  <div *ngIf="current === 2">
+    Step 3
+  </div>
+  <div *ngIf="current === 3">
+    Step 4
+  </div>
+</div>
+<div class="steps-action">
+  <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+    <span>Previous</span>
+  </button>
+  <button nz-button nzType="default" (click)="next()" *ngIf="current < 3">
+    <span>Next</span>
+  </button>
+  <button nz-button nzType="primary" (click)="done()" *ngIf="current === 3">
+    <span>Done</span>
+  </button>
+</div>
+
+<ng-template #titleTemplate>
+
+</ng-template>
+
+<ng-template #extraTemplate></ng-template>
+</nz-card>

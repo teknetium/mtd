@@ -1,0 +1,37 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item class="form-item">
+    <nz-form-label [nzSm]="8" [nzXs]="24"  nzFor="title">Title</nz-form-label>
+    <nz-form-control [nzSm]="10" [nzXs]="24">
+      <input nz-input  id="title" />
+      <nz-form-explain *ngIf="validateForm.get('title')?.dirty && validateForm.get('title')?.errors">
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <nz-form-label [nzSm]="8" [nzXs]="24"  nzFor="category">Category</nz-form-label>
+    <nz-form-control [nzSm]="10" [nzXs]="24">
+      <input nz-input  id="category" />
+      <nz-form-explain *ngIf="validateForm.get('category')?.dirty && validateForm.get('category')?.errors">
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <nz-form-label [nzSm]="8" [nzXs]="24"  nzFor="subcategory">Subcategory</nz-form-label>
+    <nz-form-control [nzSm]="10" [nzXs]="24" >
+      <input nz-input  id="subcategory" />
+      <nz-form-explain *ngIf="validateForm.get('subcategory')?.dirty && validateForm.get('subcategory')?.errors">
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <nz-form-label [nzSpan]="8" >Description</nz-form-label>
+    <nz-form-control [nzSpan]="10">
+      <textarea formControlName="description" nz-input rows="2" placeholder="Summary of the Training you are creating."></textarea>
+      <nz-form-explain
+        *ngIf="validateForm.get('description')?.dirty && validateForm.get('description')?.hasError('required')">
+        Enter description here.
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+

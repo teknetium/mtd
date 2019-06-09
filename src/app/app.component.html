@@ -1,21 +1,126 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nz-layout style="height:100%;">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+    <div class="logo">
+      <img class="logo-img" src="assets/logo.png" height="40"/>
+      <div class="appname-container">
+        <span class="appname1">my</span><span class="appname2">Training</span><span class="appname1">docs</span>
+      </div>
+    </div>
 
-<router-outlet></router-outlet>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item *ngFor="let item of sideMenuItems; let i = index" routerLinkActive #rla="routerLinkActive"
+            [ngClass]="{'DisplayNone': item.requiresLogin && !(isAuthenticated$ | async)}"
+            [nzSelected]="rla.isActive">
+          <a routerLink="{{item.route}}">
+            <i nz-icon type="{{item.icon}}"></i><span class="nav-text">{{item.label}}</span>
+          </a>
+        </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;padding-right:20px;display: inline;">
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+<!--  the following two nz-tag elements test the nuggets observable streams
+      <nz-tag [nzColor]="'purple'" (click)="addUser()">
+        <i  class="login" nz-icon [nzType]="'user-add'"></i>
+      </nz-tag>
+      <nz-tag [nzColor]="'purple'" (click)="addTraining()">
+        <i  class="login" nz-icon [nzType]="'file-add'"></i>
+      </nz-tag>
+      -->
+
+      <div class="nugget-wrapper">
+        <div class="nugget-container" *ngIf="(isAuthenticated$ | async)">
+          <div class="nugget-container2" nz-tooltip nzTitle="My Trainings" nzPlacement="bottom" [ngClass]="{'nugget-selected': currentNugget === 'mytrainings'}" (click)="showList('mytrainings')">
+            <div class="nugget">
+              <nz-badge [nzCount]="(myTrainingCnt$ | async)" [nzShowZero]="true"
+                        [nzStyle]="{ backgroundColor: '#fcf1f0', color: '#de3c38', border: '1px solid #de3c38'}">
+                <i class="badged-icon" nz-icon [nzType]="'solution'"></i>
+              </nz-badge>
+            </div>
+          </div>
+
+          <div class="nugget-container2" nz-tooltip nzTitle="My Team" nzPlacement="bottom" [ngClass]="{'nugget-selected': currentNugget === 'myteam'}" (click)="showList('myteam')">
+            <div class="nugget">
+              <nz-badge [nzCount]="(myTeamCnt$ | async)" [nzShowZero]="true"
+                        [nzStyle]="{ backgroundColor: '#fcf1f0', color: '#de3c38', border: '1px solid #de3c38'}">
+                <i class="badged-icon" nz-icon [nzType]="'team'"></i>
+              </nz-badge>
+            </div>
+          </div>
+          <div class="nugget-container2" nz-tooltip nzTitle="All Trainings" nzPlacement="bottom" [ngClass]="{'nugget-selected': currentNugget === 'trainings'}" (click)="showList('trainings')">
+            <div class="nugget">
+              <nz-badge [nzCount]="(allTrainingCnt$ | async)" [nzShowZero]="true"
+                        [nzStyle]="{ backgroundColor: '#fcf1f0', color: '#de3c38', border: '1px solid #de3c38'}">
+                <i class="badged-icon" nz-icon [nzType]="'file-text'"></i>
+              </nz-badge>
+            </div>
+          </div>
+          <div class="nugget-container2" nz-tooltip nzTitle="All Users" nzPlacement="bottom" [ngClass]="{'nugget-selected': currentNugget === 'users'}" (click)="showList('users')">
+            <div class="nugget">
+              <nz-badge [nzCount]="(allUserCnt$ | async)" [nzShowZero]="true"
+                        [nzStyle]="{ backgroundColor: '#fcf1f0', color: '#de3c38', border: '1px solid #de3c38'}">
+                <i class="badged-icon" nz-icon [nzType]="'usergroup-add'"></i>
+              </nz-badge>
+            </div>
+          </div>
+          <div class="nugget-container2" nz-tooltip nzTitle="Files Uploaded" nzPlacement="bottom" [ngClass]="{'nugget-selected': currentNugget === 'files'}" (click)="showList('files')">
+            <div class="nugget">
+              <nz-badge [nzCount]="(filesUploadedCnt$ | async)" [nzShowZero]="true"
+                        [nzStyle]="{ backgroundColor: '#fcf1f0', color: '#de3c38', border: '1px solid #de3c38'}">
+                <i class="badged-icon" nz-icon [nzType]="'file'"></i>
+              </nz-badge>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div style="float:right;display: inline-block;">
+        <div *ngIf="(isAuthenticated$ | async)" class="header-button-container" >
+          <nz-dropdown >
+          <nz-tag nz-dropdown [nzColor]="'geekblue'" class="geekblue-buttons">
+            <i class="fas fa-user-crown"></i>&nbsp;&nbsp;
+            <!--
+            <i  class="login" nz-icon [nzType]="'user'"></i>
+            -->
+              {{ authenticatedUser.email  }}
+            <i  class="" nz-icon [nzType]="'down'"></i>
+          </nz-tag>
+            <ul nz-menu nzSelectable style="background-color: #adc6ff;font-size: 12px;">
+              <li nz-menu-item>
+                <a (click)="logout()"><i  nz-icon [nzType]="'logout'"></i>&nbsp;&nbsp;Log Out</a>
+              </li>
+              <li nz-menu-item>
+                <a routerLink="profile"><i nz-icon [nzType]="'profile'"></i>&nbsp;&nbsp;Profile</a>
+              </li>
+            </ul>
+
+          </nz-dropdown>
+        </div>
+      <div *ngIf="!(isAuthenticated$ | async)" class="header-button-container">
+        <nz-tag [nzColor]="'purple'" (click)="login()" class="purple-buttons">
+          <i class="login" nz-icon [nzType]="'login'"></i>
+          Log In
+        </nz-tag>
+      </div>
+          <div *ngIf="!(isAuthenticated$ | async)" class="header-button-container">
+        <nz-tag [nzColor]="'geekblue'" (click)="signup()" class="geekblue-buttons">
+          <i class="signup" nz-icon [nzType]="'user-add'"></i>
+          Sign Up Free
+        </nz-tag>
+      </div>
+      </div>
+      <ng-template #loading let-user>Waiting... (user is {{user|json}})</ng-template>
+    </nz-header>
+    <nz-content style="height: 100%;">
+      <div style="padding:24px; background: #fff;height: 100%;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Teknetium ©2019</nz-footer>
+  </nz-layout>
+</nz-layout>
+
+<ng-template #trigger>
+  <i nz-icon type="up"></i>
+</ng-template>

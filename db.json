@@ -1,0 +1,45 @@
+{
+  "trainings": [
+    {
+      "type": "online",
+      "title": "Lifeguarding  Part 1",
+      "category": "aquatics",
+      "subcategory": "lifeguard",
+      "desc": "Fundamentals of Lifeguarding",
+      "owner": "gregl@teknetium.com",
+      "file": "fileId"
+    },
+    {
+      "type": "online",
+      "title": "Lifeguarding  Part 2",
+      "category": "aquatics",
+      "subcategory": "lifeguard",
+      "desc": "Fundamentals of Lifeguarding",
+      "owner": "gregl@teknetium.com",
+      "file": "fileId"
+    },
+    {
+      "type": "online",
+      "title": "Lifeguarding  Part 3",
+      "category": "aquatics",
+      "subcategory": "lifeguard",
+      "desc": "Fundamentals of Lifeguarding",
+      "owner": "gregl@teknetium.com",
+      "file": "fileId"
+    }
+  ],
+  "users": [
+  ],
+  "trainingcategories": [
+    "Sales",
+    "inside",
+    "outside",
+    "Finance",
+    "Engineering",
+    "Support",
+    "Human Resources"
+  ],
+  "trainingsubcategory": [],
+  "roles": []
+
+}

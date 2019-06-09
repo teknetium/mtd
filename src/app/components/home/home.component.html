@@ -1,0 +1,78 @@
+<div class="view-title" *ngIf="(isAuthenticated$ | async)" style="">
+  Welcome!
+</div>
+<div class="home-container col-12">
+  <div style="height: 100%;" *ngIf="!(isAuthenticated$ | async)">
+    <nz-card class="card" style="border:0;" [nzTitle]="titleTemplate" [nzExtra]="extraTemplate">
+      <div style="display: inline;font-size: 1.5em;margin-left:20px;">
+        <i nz-tooltip nzTitle="previous" style="margin-right: 5px;" class="login" nz-icon
+           [nzType]="'up-circle'" (click)="prev()"
+           [ngClass]="{'tabButtonActive': selectedIndex > 0, 'tabButtonInactive': selectedIndex === 0}"></i>
+        <i nz-tooltip nzTitle="next" class="login" nz-icon [nzType]="'down-circle'"
+           [ngClass]="{'tabButtonActive': selectedIndex < numCells-1, 'tabButtonInactive': selectedIndex === numCells-1}"
+           (click)="next()"></i>
+        <span style="font-size:16px;margin-left:15px;color:#999999">{{currentCellIndex+1}}/{{numCells}}</span>
+      </div>
+      <nz-tabset style="overflow: margin: 10px 0 0 0; scroll;" [nzShowPagination]="false" [nzTabBarGutter]=0 [nzSize]="nzTabSize"
+                 [nzTabPosition]="nzTabPosition" [(nzSelectedIndex)]="selectedIndex" (nzSelectedIndexChange)="tabIndexChanged($event)">
+        <nz-tab style="height: 100%;" *ngFor="let currentCell of cellArray; let i = index"
+              [nzTitle]="titleTemplate" >
+          <ng-template #titleTemplate><img [src]="currentCell.image" height="40"/></ng-template>
+          <div class="cell-container">
+            <div class="cell-text-container">
+              <div class="cell-problem-text-container">
+                <img [src]="currentCell.image" height="40"/>
+                <div class="cell-problem-text" [innerHTML]="currentCell.problem">
+                </div>
+              </div>
+              <div class="cell-solution-text-container">
+                <div class="cell-solution-text">
+                        <span *ngIf="currentCell.solution">
+                          <span style="color:blue;" *ngIf="currentCell.planLabel">Basic Plan </span><br>
+                          <span [innerHTML]="currentCell.solution"></span>
+                        </span>
+                  <span *ngIf="currentCell.proSolution">
+                          <span style="color:red;" *ngIf="currentCell.planLabel">PRO Plan</span><br>
+                          <span [innerHTML]="currentCell.proSolution"></span>
+                        </span>
+                  <div *ngIf="currentCell.cellId === 'fileTypes'" class="doc-viewer">
+                    <mtd-file-type-demo></mtd-file-type-demo>
+                  </div>
+                  <div *ngIf="currentCell.cellId === 'easyAsPie'" class="doc-viewer">
+                    <mtd-getting-started></mtd-getting-started>
+                  </div>
+                  <div *ngIf="currentCell.cellId === 'stepWizard'" class="doc-viewer">
+                    <mtd-getting-started showTitle="false"></mtd-getting-started>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+      <div style="display: inline;font-size: 1.5em;margin-left:20px;">
+        <i nz-tooltip nzTitle="previous" style="margin-right: 5px;" class="login" nz-icon
+           [nzType]="'up-circle'" (click)="prev()"
+           [ngClass]="{'tabButtonActive': selectedIndex > 0, 'tabButtonInactive': selectedIndex === 0}"></i>
+        <i nz-tooltip nzTitle="next" class="login" nz-icon [nzType]="'down-circle'"
+           [ngClass]="{'tabButtonActive': selectedIndex < numCells-1, 'tabButtonInactive': selectedIndex === numCells-1}"
+           (click)="next()"></i>
+      </div>
+
+    </nz-card>
+    <ng-template #extraTemplate>
+    </ng-template>
+    <ng-template #titleTemplate>
+      <div class="intro">
+        <div class="introduction-title">
+          Finally, a Training Management System designed for TEAMS!
+        </div>
+        <div class="introduction-body">
+          World class Training Management functionality that is <b>SIMPLE</b> to setup, <b>EASY</b> to use, and
+          <b>SCALES</b> to large organizations.
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+

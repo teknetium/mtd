@@ -1,0 +1,58 @@
+.plans-and-pricing-container {
+  width:100%;
+  padding:0 20px 20px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.plan {
+  min-width: 300px;
+  max-width: 400px;
+  width: 35%;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.plan-details {
+  width: 90%;
+  border: 1px solid #bbbbbb;
+  padding: 20px;
+  display: inline-block;
+}
+
+.plan-details:hover {
+  background-color: #f0f0f0;
+}
+
+.plan-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #888888;
+}
+.pro-plan-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: red;
+}
+.free-plan-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: darkgreen;
+}
+.plan-price {
+  text-align: center;
+  margin: -.5em 0  0;
+}
+
+.feature-list {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+}
+
+.feature-container {
+  min-height: 9em;
+}
